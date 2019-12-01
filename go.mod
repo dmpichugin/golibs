@@ -1,4 +1,4 @@
-module github.com/dmitrypich/golibs
+module github.com/dmpichugin/golibs
 
 go 1.12
 
