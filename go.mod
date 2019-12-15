@@ -1,6 +1,6 @@
 module github.com/dmpichugin/golibs
 
-go 1.12
+go 1.13
 
 require (
 	github.com/go-playground/locales v0.12.1 // indirect
