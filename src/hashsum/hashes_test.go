@@ -1,9 +1,12 @@
 package hashsum
 
 import (
+	"fmt"
 	"io"
 	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 type testData struct {
@@ -56,34 +59,18 @@ var (
 
 func TestHashSums(t *testing.T) {
 
+	t.Parallel()
+
 	for index, data := range testArray {
 
-		md5Result := MD5(data.text)
-		if md5Result != data.md5 {
-			t.Errorf("md5 index %d not equal: wait %s real %s", index, data.md5, md5Result)
-		}
-
-		sha1Result := Sha1(data.text)
-		if sha1Result != data.sha1 {
-			t.Errorf("sha1 index %d not equal: wait %s real %s", index, data.sha1, sha1Result)
-		}
-
-		sha256Result := Sha256(data.text)
-		if sha1Result != data.sha1 {
-			t.Errorf("sha256 index %d not equal: wait %s real %s", index, data.sha256, sha256Result)
-		}
-
-		sha384Result := Sha384(data.text)
-		if sha1Result != data.sha1 {
-			t.Errorf("sha384 index %d not equal: wait %s real %s", index, data.sha384, sha384Result)
-		}
-
-		sha512Result := Sha512(data.text)
-		if sha1Result != data.sha1 {
-			t.Errorf("sha512 index %d not equal: wait %s real %s", index, data.sha512, sha512Result)
-		}
+		t.Run(fmt.Sprintf("%v", index), func(t *testing.T) {
+			assert.Equalf(t, data.md5, MD5(data.text), "MD5")
+			assert.Equalf(t, data.sha1, Sha1(data.text), "Sha1")
+			assert.Equalf(t, data.sha256, Sha256(data.text), "Sha256")
+			assert.Equalf(t, data.sha384, Sha384(data.text), "Sha384")
+			assert.Equalf(t, data.sha512, Sha512(data.text), "Sha512")
+		})
 	}
-
 }
 
 func BenchmarkMD5Lorem10(b *testing.B) {
