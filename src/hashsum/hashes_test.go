@@ -59,8 +59,6 @@ var (
 
 func TestHashSums(t *testing.T) {
 
-	t.Parallel()
-
 	for index, data := range testArray {
 
 		t.Run(fmt.Sprintf("%v", index), func(t *testing.T) {
@@ -69,6 +67,30 @@ func TestHashSums(t *testing.T) {
 			assert.Equalf(t, data.sha256, Sha256(data.text), "Sha256")
 			assert.Equalf(t, data.sha384, Sha384(data.text), "Sha384")
 			assert.Equalf(t, data.sha512, Sha512(data.text), "Sha512")
+		})
+	}
+}
+
+func TestHashReaderSums(t *testing.T) {
+
+	for index, data := range testArray {
+
+		t.Run(fmt.Sprintf("%v", index), func(t *testing.T) {
+			hash, err := MD5Reader(data.getReader())
+			assert.Equal(t, data.md5, hash)
+			assert.Nil(t, err)
+			hash, err = Sha1Reader(data.getReader())
+			assert.Equal(t, data.sha1, hash)
+			assert.Nil(t, err)
+			hash, err = Sha256Reader(data.getReader())
+			assert.Equal(t, data.sha256, hash)
+			assert.Nil(t, err)
+			hash, err = Sha384Reader(data.getReader())
+			assert.Equal(t, data.sha384, hash)
+			assert.Nil(t, err)
+			hash, err = Sha512Reader(data.getReader())
+			assert.Equal(t, data.sha512, hash)
+			assert.Nil(t, err)
 		})
 	}
 }
