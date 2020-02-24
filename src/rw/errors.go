@@ -1,6 +1,6 @@
 package rw
 
-import "github.com/dmpichugin/golibs/errpkg"
+import "github.com/dmpichugin/golibs/src/errpkg"
 
 const (
 	BadReaderErr errpkg.Error = "bad reader"
