@@ -31,9 +31,9 @@ test_stage:1.13:
   script:
     - go test -v -count=1 -bench=. -benchmem ./src/...
 
-test_stage:1.12:
+test_stage:1.14:
   stage: test
-  image: golang:1.12-alpine
+  image: golang:1.14-alpine
   services:
     - docker:dind
   before_script:
