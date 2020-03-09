@@ -1,8 +1,10 @@
 package rw
 
-import "github.com/dmpichugin/golibs/src/errpkg"
+import (
+	"github.com/dmpichugin/golibs/src/errors"
+)
 
 const (
-	BadReaderErr errpkg.Error = "bad reader"
-	BadWriterErr errpkg.Error = "bad writer"
+	BadReaderErr errors.String = "bad reader"
+	BadWriterErr errors.String = "bad writer"
 )
