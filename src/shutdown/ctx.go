@@ -33,6 +33,7 @@ func listener() {
 	case <-ctx.Done():
 	case <-signalChan:
 	}
+	signal.Stop(signalChan)
 
 	cancel()
 }
