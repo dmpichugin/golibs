@@ -29,7 +29,7 @@ test_stage:1.13:
     - go mod vendor
     - export GO111MODULE=on
   script:
-    - go test -v -count=1 -bench=. -benchmem ./src/...
+    - go test -count=1 -bench=. -benchmem ./src/...
 
 test_stage:1.14:
   stage: test
@@ -41,7 +41,7 @@ test_stage:1.14:
     - go mod vendor
     - export GO111MODULE=on
   script:
-    - go test -v -count=1 -bench=. -benchmem ./src/...
+    - go test -count=1 -bench=. -benchmem ./src/...
 
 
 
