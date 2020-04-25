@@ -43,5 +43,7 @@ func initCtx() {
 }
 
 func Force() {
-	cancel()
+	if cancel != nil {
+		cancel()
+	}
 }
