@@ -1,10 +1,10 @@
 package uniq
 
 import (
-	"github.com/gofrs/uuid"
+	"github.com/satori/go.uuid"
 )
 
 func UUID() string {
 
-	return uuid.Must(uuid.NewV4()).String()
+	return uuid.NewV4().String()
 }
