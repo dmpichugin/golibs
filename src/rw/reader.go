@@ -4,6 +4,17 @@ import (
 	"io"
 )
 
+type MockReader struct {
+}
+
+func NewMockReader() *MockReader {
+	return &MockReader{}
+}
+
+func (m MockReader) Read(p []byte) (n int, err error) {
+	return len(p), nil
+}
+
 func NewBadReader() io.Reader {
 
 	return NewBadReaderWithErr(BadReaderErr)

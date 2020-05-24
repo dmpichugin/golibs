@@ -4,6 +4,17 @@ import (
 	"io"
 )
 
+type MockWriter struct {
+}
+
+func NewMockWriter() *MockWriter {
+	return &MockWriter{}
+}
+
+func (m MockWriter) Write(p []byte) (n int, err error) {
+	return len(p), nil
+}
+
 type BadWriter struct {
 	err error
 }
