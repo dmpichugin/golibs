@@ -11,14 +11,16 @@ import (
 var (
 	ctx    context.Context
 	cancel context.CancelFunc
-
-	once sync.Once
+	mutex  sync.Mutex
+	once   sync.Once
 )
 
 func Ctx() context.Context {
 
+	mutex.Lock()
+	defer mutex.Unlock()
 	once.Do(func() {
-		initCtx()
+		ctx, cancel = context.WithCancel(context.Background())
 		go listener()
 	})
 
@@ -38,11 +40,9 @@ func listener() {
 	cancel()
 }
 
-func initCtx() {
-	ctx, cancel = context.WithCancel(context.Background())
-}
-
 func Force() {
+	mutex.Lock()
+	defer mutex.Unlock()
 	if cancel != nil {
 		cancel()
 	}
