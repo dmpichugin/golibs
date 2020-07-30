@@ -6,11 +6,15 @@ import (
 )
 
 var (
-	seed = rand.New(rand.NewSource(time.Now().UnixNano()))
+	seedValue = time.Now().UnixNano()
+	seed      = rand.New(rand.NewSource(seedValue))
 )
 
-func Int63() int64 {
+func GetSeedValue() int64 {
+	return seedValue
+}
 
+func Int63() int64 {
 	return seed.Int63()
 }
 
