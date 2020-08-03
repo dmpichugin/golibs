@@ -3,12 +3,12 @@ package shutdown
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestCtx(t *testing.T) {
 	ctx := Ctx()
 	Force()
-	assert.NotNil(t, ctx, "nil context")
-	assert.NotNil(t, ctx.Err(), "nil err after force")
+	require.NotNil(t, ctx, "nil context")
+	require.NotNil(t, ctx.Err(), "nil err after force")
 }
