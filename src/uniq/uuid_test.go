@@ -4,16 +4,13 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestUUIDRegexp(t *testing.T) {
 	re, err := regexp.Compile("^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$")
-	assert.NoError(t, err, "compile regular")
-	if err != nil {
-		return
-	}
-	assert.True(t, re.MatchString(UUID()))
+	require.NoError(t, err, "compile regular")
+	require.True(t, re.MatchString(UUID()))
 }
 
 func BenchmarkUUIDv4(b *testing.B) {
