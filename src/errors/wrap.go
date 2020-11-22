@@ -1,7 +1,7 @@
 package errors
 
 import (
-	"github.com/pkg/errors"
+	"github.com/cockroachdb/errors"
 )
 
 func As(err error, target interface{}) bool {
