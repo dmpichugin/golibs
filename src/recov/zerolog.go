@@ -2,7 +2,8 @@ package recov
 
 import (
 	"context"
-	"github.com/cockroachdb/errors"
+
+	"github.com/dmpichugin/golibs/src/errors"
 	"github.com/dmpichugin/golibs/src/log"
 )
 
@@ -14,6 +15,6 @@ func NewZerologRecoverer() *zerologRecoverer {
 
 func (r *zerologRecoverer) Err(ctx context.Context, recoverMessage interface{}) {
 	if recoverMessage != nil {
-		log.ErrorC(ctx).Stack().Err(errors.Newf("%s", recoverMessage)).Send()
+		log.ErrorC(ctx).Stack().Err(errors.Errorf("%s", recoverMessage)).Send()
 	}
 }
