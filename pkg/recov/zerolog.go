@@ -3,8 +3,8 @@ package recov
 import (
 	"context"
 
-	"github.com/dmpichugin/golibs/src/errors"
-	"github.com/dmpichugin/golibs/src/log"
+	"github.com/dmpichugin/golibs/pkg/errors"
+	"github.com/dmpichugin/golibs/pkg/log"
 )
 
 type zerologRecoverer struct{}

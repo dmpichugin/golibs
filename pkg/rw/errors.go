@@ -1,7 +1,7 @@
 package rw
 
 import (
-	"github.com/dmpichugin/golibs/src/errors"
+	"github.com/dmpichugin/golibs/pkg/errors"
 )
 
 const (
