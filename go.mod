@@ -5,8 +5,8 @@ go 1.17
 require (
 	github.com/cockroachdb/errors v1.11.1
 	github.com/go-playground/validator/v10 v10.11.1
-	github.com/rs/xid v1.3.0
-	github.com/rs/zerolog v1.26.1
+	github.com/rs/xid v1.5.0
+	github.com/rs/zerolog v1.30.0
 	github.com/satori/go.uuid v1.2.0
 	github.com/stretchr/testify v1.8.1
 )
@@ -22,6 +22,8 @@ require (
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
